@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 
+import argparse
+
+parser = argparse.ArgumentParser(description="Print out the CPUS that our SLURM job has been given.")
+parser.add_argument("--which", choices=["all", "first", "rest"], default="all", help="Which CPS to print out.")
+args = parser.parse_args()
+
+
 import re
 
 import subprocess
@@ -96,12 +103,19 @@ for group in CPU_IDs.split(","):
     else:
         cpus.append(int(group))
 
+if args.which == "first":
+    print(cpus[0])
+elif args.which == "rest":
+    print(cpus[1:])
+elif args.which == "all":
+    print(cpus)
+
 # Concatenate all together and literally print a list of the IDs
-cpu_strs = ["{}".format(cpu) for cpu in cpus]
-cpulist = ",".join(cpu_strs)
-
-# Truncate the last comma, if we had more than one cpu
-if len(cpus) > 1:
-    cpulist = cpulist[:-1]
-
-print(cpulist)
+# cpu_strs = ["{}".format(cpu) for cpu in cpus]
+# cpulist = ",".join(cpu_strs)
+#
+# # Truncate the last comma, if we had more than one cpu
+# if len(cpus) > 1:
+#     cpulist = cpulist[:-1]
+#
+# print(cpulist)

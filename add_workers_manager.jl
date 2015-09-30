@@ -9,21 +9,20 @@ s = ArgParseSettings()
 @add_arg_table s begin
     # "--opt1"
     # help = "an option with an argument"
-    "--p", "-p"
-    help = "number of processes to add"
-    arg_type = Int
-    default = 0
+    "--cpus"
+    help = "Which CPUS to add"
+    arg_type = Array{Int, 1}
 end
 
 parsed_args = parse_args(ARGS, s)
 
-p = parsed_args["p"]
+cpus = parsed_args["cpus"]
+p = length(cpus)
 
 using ClusterManagers
 
-if p > 0
-    addprocs(LocalAffinityManager(;affinities=[1,2]))
-end
+addprocs(LocalAffinityManager(;affinities=cpus))
+
 
 nchild = nworkers()
 println("Workers allocated ", nchild)
