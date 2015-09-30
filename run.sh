@@ -25,7 +25,7 @@
 ## Call cpu_list to get the currently running CPUS
 
 echo "numactl says"
-numactl
+numactl --show
 
 CPUMASTER=`./cpu_list.py --which first`
 
