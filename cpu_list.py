@@ -98,7 +98,10 @@ for group in CPU_IDs.split(","):
 
 # Concatenate all together and literally print a list of the IDs
 cpu_strs = ["{}".format(cpu) for cpu in cpus]
-print(cpu_strs)
 cpulist = ",".join(cpu_strs)
+
+# Truncate the last comma, if we had more than one cpu
+if len(cpus) > 1:
+    cpulist = cpulist[:-1]
+
 print(cpulist)
-print(cpulist[:-1])
