@@ -73,9 +73,9 @@ m = p.search(text)
 
 if m:
     CPU_IDs = m.group(1)
-    print("Found CPU_IDs ", CPU_IDs)
+    # print("Found CPU_IDs ", CPU_IDs)
 else:
-    print("No match to CPU_IDs, exiting.")
+    # print("No match to CPU_IDs, exiting.")
     import sys
     sys.exit()
 
@@ -92,9 +92,10 @@ for group in CPU_IDs.split(","):
         low = int(low)
         high = int(high)
         cpus += list(range(low, high+1))
-    # If it doesn't just append it
+    # If it doesn't include a hyphen just append it
     else:
         cpus.append(int(group))
 
 # Concatenate all together and literally print a list of the IDs
-print(cpus)
+cpulist = ",".join(cpus)
+print(cpulist[:-1])
