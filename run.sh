@@ -24,9 +24,9 @@
 
 ## Call cpu_list to get the currently running CPUS
 
-CPUMASTER = `./cpu_list.py --which first`
+CPUMASTER=`./cpu_list.py --which first`
 
-CPULIST = `./cpu_list.py --which rest`
+CPULIST=`./cpu_list.py --which rest`
 
 echo "Master CPU is $CPUMASTER"
 echo "Worker CPUs are $CPULIST"
