@@ -4,7 +4,7 @@ import re
 
 import subprocess
 
-text = subprocess.check_output("scontrol -dd show job $SLURM_JOB_ID", universal_newlines=True)
+text = subprocess.check_output(["scontrol", "-dd show job $SLURM_JOB_ID"], universal_newlines=True)
 
 # This command is run
 # scontrol -dd show job $SLURM_CPU_BIND
