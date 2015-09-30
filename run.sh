@@ -33,4 +33,4 @@ echo "Worker CPUs are $CPULIST"
 
 #Constrain the brain process to start on CPUMASTER, then add the workers in using AffinityManager.
 # taskset -c $CPUMASTER ./add_workers_manager.jl $CPULIST
-./add_workers_manager.jl $CPULIST
+./add_workers_manager.jl --cpus $CPULIST
