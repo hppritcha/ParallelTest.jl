@@ -97,5 +97,6 @@ for group in CPU_IDs.split(","):
         cpus.append(int(group))
 
 # Concatenate all together and literally print a list of the IDs
-cpulist = ",".join(cpus)
+cpu_strs = ["{}".format(cpu) for cpu in cpus]
+cpulist = ",".join(cpu_strs)
 print(cpulist[:-1])
