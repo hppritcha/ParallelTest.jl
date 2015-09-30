@@ -103,19 +103,17 @@ for group in CPU_IDs.split(","):
     else:
         cpus.append(int(group))
 
+# Concatenate all together and literally print a list of the IDs
+cpu_strs = ["{}".format(cpu) for cpu in cpus]
+
 if args.which == "first":
+    # Print only the cpu integer
     print(cpus[0])
 elif args.which == "rest":
-    print(cpus[1:])
-elif args.which == "all":
-    print(cpus)
+    # Print the rest of the values like [1,2,3] NOT [1, 3, 4]
+    cpulist = ",".join(cpu_strs[1:])
+    print("[{}]".format(cpulist))
 
-# Concatenate all together and literally print a list of the IDs
-# cpu_strs = ["{}".format(cpu) for cpu in cpus]
-# cpulist = ",".join(cpu_strs)
-#
-# # Truncate the last comma, if we had more than one cpu
-# if len(cpus) > 1:
-#     cpulist = cpulist[:-1]
-#
-# print(cpulist)
+elif args.which == "all":
+    # Print the values however you want
+    print(cpus)
