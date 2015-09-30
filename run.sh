@@ -27,9 +27,9 @@
 echo "numactl says"
 numactl --show
 
-CPUMASTER=`./cpu_list.py --which first`
+CPUMASTER=`./cpu_list_numa.py --which first`
 
-CPULIST=`./cpu_list.py --which rest`
+CPULIST=`./cpu_list_numa.py --which rest`
 
 echo "Master CPU is $CPUMASTER"
 echo "Worker CPUs are $CPULIST"
