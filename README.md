@@ -37,3 +37,20 @@ This didn't work, allocated 4 processes, but workers stuck one on master process
 #SBATCH --ntasks-per-core=1
 
 #SBATCH --ntasks-per-socket=1
+
+Still the same crap
+
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+###SBATCH -n 4
+
+#SBATCH --sockets-per-node=1
+
+#SBATCH --cores-per-socket=4
+
+#SBATCH --threads-per-core=1
+
+#SBATCH --ntasks-per-core=1
+
+#SBATCH --ntasks-per-socket=4
