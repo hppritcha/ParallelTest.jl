@@ -28,7 +28,7 @@
 
 #SBATCH --threads-per-core=1
 
-#SBATCH --ntasks-per-core=4
+#SBATCH --ntasks-per-core=1
 
 #SBATCH --ntasks-per-socket=1
 
