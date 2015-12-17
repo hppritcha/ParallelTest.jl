@@ -22,6 +22,11 @@
 
 #SBATCH -n 4
 
+#SBATCH -B 1:4
+
+#SBATCH --verbose
+
+
 ## Call cpu_list to get the currently running CPUS
 
 echo "numactl says"
