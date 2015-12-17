@@ -20,7 +20,7 @@
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
-###SBATCH -n 4
+#SBATCH -n 4
 
 #SBATCH --sockets-per-node=1
 

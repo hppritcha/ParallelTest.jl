@@ -54,3 +54,5 @@ Still the same crap
 #SBATCH --ntasks-per-core=1
 
 #SBATCH --ntasks-per-socket=4
+
+Ended up landing completely on the same core.
