@@ -22,16 +22,7 @@
 
 #SBATCH -n 4
 
-#SBATCH --sockets-per-node=1
-
-#SBATCH --cores-per-socket=4
-
-#SBATCH --threads-per-core=1
-
-#SBATCH --ntasks-per-core=1
-
-#SBATCH --ntasks-per-socket=4
-
+#SBATCH --cpu_bind=verbose
 
 ## Call cpu_list to get the currently running CPUS
 

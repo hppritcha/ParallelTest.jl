@@ -56,3 +56,18 @@ Still the same crap
 #SBATCH --ntasks-per-socket=4
 
 Ended up landing completely on the same core.
+
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 4
+
+#SBATCH --sockets-per-node=1
+
+#SBATCH --cores-per-socket=4
+
+#SBATCH --threads-per-core=1
+
+#SBATCH --ntasks-per-core=1
+
+#SBATCH --ntasks-per-socket=4
