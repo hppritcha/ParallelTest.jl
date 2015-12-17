@@ -20,7 +20,18 @@
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
-#SBATCH -n 4
+###SBATCH -n 4
+
+#SBATCH --sockets-per-node=4
+
+#SBATCH --cores-per-socket=1
+
+#SBATCH --threads-per-core=1
+
+#SBATCH --ntasks-per-core=4
+
+#SBATCH --ntasks-per-socket=1
+
 
 ## Call cpu_list to get the currently running CPUS
 
