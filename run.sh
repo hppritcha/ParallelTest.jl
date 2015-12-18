@@ -22,8 +22,6 @@
 
 #SBATCH -n 8
 
-#SBATCH -B 1:8:1
-
 #SBATCH --ntasks-per-core 1
 
 #SBATCH --verbose

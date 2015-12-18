@@ -83,3 +83,25 @@ Some minor success, I guess. Worker process still on same as master, but otherwi
 #SBATCH --verbose
 
 Nope, we had overlap.
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 8
+
+#SBATCH -B 1:8:1
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose
+
+This actually seemed to work pretty well. Let's test whether we need the 1:8:1 constraint.
+
+#SBATCH --mem 2000 #memory request per node
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 8
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose
