@@ -105,3 +105,5 @@ This actually seemed to work pretty well. Let's test whether we need the 1:8:1 c
 #SBATCH --ntasks-per-core 1
 
 #SBATCH --verbose
+
+Ok, this didn't work. Let's try with just 1:8 and not 1:8:1
