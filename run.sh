@@ -16,13 +16,15 @@
 
 #SBATCH --mail-user=iancze@gmail.com
 
-#SBATCH --mem 1000 #memory request per node
+#SBATCH --mem 2000 #memory request per node
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
 #SBATCH -n 8
 
 #SBATCH -B 1:8:1
+
+#SBATCH --ntasks-per-core 1
 
 #SBATCH --verbose
 
