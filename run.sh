@@ -20,9 +20,9 @@
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
-#SBATCH -n 4
+#SBATCH -n 8
 
-#SBATCH -B 1:4
+#SBATCH -B 1:8:1
 
 #SBATCH --verbose
 
@@ -41,6 +41,6 @@ echo "Worker CPUs are $CPULIST"
 
 #Constrain the brain process to start on CPUMASTER, then add the workers in using AffinityManager.
 # taskset -c $CPUMASTER ./add_workers_manager.jl $CPULIST
-./add_workers.jl --p 3
+./add_workers.jl --p 7
 
 # numactl -C $CPUMASTER ./add_workers_manager.jl --cpus $CPULIST

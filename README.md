@@ -67,12 +67,17 @@ Ended up landing completely on the same core.
 
 #SBATCH -n 4
 
-#SBATCH --sockets-per-node=1
+#SBATCH -B 1:4
 
-#SBATCH --cores-per-socket=4
+#SBATCH --verbose
 
-#SBATCH --threads-per-core=1
+Some minor success, I guess. Worker process still on same as master, but otherwise they didn't conflict.
 
-#SBATCH --ntasks-per-core=1
 
-#SBATCH --ntasks-per-socket=4
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 8
+
+#SBATCH -B 1:8:1
+
+#SBATCH --verbose
