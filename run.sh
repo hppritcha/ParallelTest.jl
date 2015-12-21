@@ -31,6 +31,15 @@
 
 ## Call cpu_list to get the currently running CPUS
 
+# Let's read out the SLURM environment variables
+echo "SLURM_CPU_BIND $SLURM_CPU_BIND"
+echo "SLURM JOB NODELIST $SLURM_JOB_NODELIST"
+echo "SLURM_TASKS_PER_NODE $SLURM_TASKS_PER_NODE"
+
+echo "SLURM_NTASKS_PER_CODE $SLURM_NTASKS_PER_CORE"
+echo "SLURM_NTASKS_PER_SOCKET $SLURM_NTASKS_PER_SOCKET"
+
+
 echo "numactl says"
 numactl --show
 
