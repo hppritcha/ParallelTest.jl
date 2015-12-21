@@ -107,3 +107,25 @@ This actually seemed to work pretty well. Let's test whether we need the 1:8:1 c
 #SBATCH --verbose
 
 Ok, this didn't work. Let's try with just 1:8 and not 1:8:1
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 8
+
+#SBATCH -B 1:1:1
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose
+
+We had some overlap, but not drastic.
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 8
+
+#SBATCH -B *:*:1
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose
