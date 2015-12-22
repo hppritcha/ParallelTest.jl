@@ -44,8 +44,8 @@ for task in tasklist:
     else:
         tasks.append(int(task))
 
-# hostfile = "slurm/run{}hosts.txt".format(args.run)
-hostfile = "hosts.txt"
+hostfile = "slurm/run{}hosts.txt".format(args.run)
+# hostfile = "hosts.txt"
 if os.path.isfile(hostfile):
     os.remove(hostfile)
 
@@ -59,7 +59,7 @@ for ntask, host in zip(tasks, hostlist):
     # if (host == masterhost) and (not skipped):
         # skipped = True
     # else:
-    # f.write("{:}*{}\n".format(ntask, host))
-    f.write("{}\n".format(host))
+    f.write("{:}*{}\n".format(ntask, host))
+    # f.write("{}\n".format(host))
 
 f.close()

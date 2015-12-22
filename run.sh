@@ -69,6 +69,6 @@ echo "Worker CPUs are $CPULIST"
 
 hostgen.py $SLURM_ARRAY_TASK_ID
 
-# hostfile="slurm/run${SLURM_ARRAY_TASK_ID}hosts.txt"
+hostfile="slurm/run${SLURM_ARRAY_TASK_ID}hosts.txt"
 
-add_workers.jl -p 8 --machinefile hosts.txt
+julia --machinefile $hostfile add_workers.jl -r $SLURM_ARRAY_TASK_ID
