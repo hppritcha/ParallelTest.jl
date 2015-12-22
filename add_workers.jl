@@ -39,6 +39,7 @@ print_cpus()
 @everywhere function pcpus(mat)
     println("In map")
     print_cpus()
+    println("PATH ", ENV["PATH"])
     svd(mat)
 end
 
