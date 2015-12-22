@@ -44,7 +44,8 @@ for task in tasklist:
     else:
         tasks.append(int(task))
 
-hostfile = "slurm/run{}hosts.txt".format(args.run)
+# hostfile = "slurm/run{}hosts.txt".format(args.run)
+hostfile = "hosts.txt"
 if os.path.isfile(hostfile):
     os.remove(hostfile)
 
