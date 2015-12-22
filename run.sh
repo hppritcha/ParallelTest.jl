@@ -71,6 +71,8 @@ hostgen.py $SLURM_ARRAY_TASK_ID
 
 hostfile="slurm/run${SLURM_ARRAY_TASK_ID}hosts.txt"
 
-source ~/.bashrc
+# source ~/.bashrc
 
-julia --machinefile $hostfile add_workers.jl -r $SLURM_ARRAY_TASK_ID
+# julia --machinefile $hostfile add_workers.jl -r $SLURM_ARRAY_TASK_ID
+/bin/hostname
+echo $PATH
