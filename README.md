@@ -127,10 +127,12 @@ We had some overlap, but not drastic.
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
-#SBATCH -n 8
+#SBATCH -n 4
 
 #SBATCH -B *:*:1
 
 #SBATCH --ntasks-per-core 1
 
 #SBATCH --verbose
+
+This did not work, and resulted in cores on same processors.

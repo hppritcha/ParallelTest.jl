@@ -22,7 +22,7 @@
 
 #SBATCH -n 4
 
-#SBATCH -B *:*:1
+#SBATCH -B 1:4:1
 
 #SBATCH --ntasks-per-core 1
 
@@ -33,7 +33,7 @@
 
 # Let's read out the SLURM environment variables
 echo "SLURM_CPU_BIND $SLURM_CPU_BIND"
-echo "SLURM JOB NODELIST $SLURM_JOB_NODELIST"
+echo "SLURM JOB_NODELIST $SLURM_JOB_NODELIST"
 echo "SLURM_TASKS_PER_NODE $SLURM_TASKS_PER_NODE"
 
 echo "SLURM_NTASKS_PER_CODE $SLURM_NTASKS_PER_CORE"
@@ -51,9 +51,9 @@ echo "SLURM_NTASKS_PER_SOCKET $SLURM_NTASKS_PER_SOCKET"
 echo "numactl says"
 numactl --show
 
-CPUMASTER=`./cpu_list_numa.py --which first`
+CPUMASTER=$(./cpu_list_numa.py --which first)
 
-CPULIST=`./cpu_list_numa.py --which rest`
+CPULIST=$(./cpu_list_numa.py --which rest)
 
 echo "Master CPU is $CPUMASTER"
 echo "Worker CPUs are $CPULIST"
