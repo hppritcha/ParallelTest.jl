@@ -40,7 +40,9 @@ echo "SLURM_NTASKS_PER_CODE $SLURM_NTASKS_PER_CORE"
 echo "SLURM_NTASKS_PER_SOCKET $SLURM_NTASKS_PER_SOCKET"
 
 
-# hostlist=$(scontrol show hostname $SLURM_JOB_NODELIST)
+hostlist=$(scontrol show hostname $SLURM_JOB_NODELIST)
+
+echo "Hostlist" $hostlist
 # rm -f hosts
 #
 # for f in $hostlist
@@ -62,4 +64,11 @@ echo "Worker CPUs are $CPULIST"
 # taskset -c $CPUMASTER ./add_workers_manager.jl $CPULIST
 # numactl -C $CPUMASTER ./add_workers_manager.jl --cpus $CPULIST
 
-./add_workers.jl --p 3
+# ./add_workers.jl --p 3
+
+
+hostgen.py $SLURM_ARRAY_TASK_ID
+
+hostfile="slurm/run${SLURM_ARRAY_TASK_ID}hosts.txt"
+
+add_workers.jl --machinefile $hostfile

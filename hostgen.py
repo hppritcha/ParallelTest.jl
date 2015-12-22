@@ -27,8 +27,10 @@ hostlist = check("scontrol show hostname " + slurm_job_nodelist)[:-1].split("\n"
 
 masterhost = check("hostname").split(".")[0]
 
-tasklist = check("echo $SLURM_JOB_CPUS_PER_NODE").split(",")
+# tasklist = check("echo $SLURM_JOB_CPUS_PER_NODE").split(",")
+# hostlist = ["one", "two", "three", "four", "five"]
 # tasklist = "4,2(x3),5".split(",")
+# masterhost = "one"
 
 # if two nodes have the same number of processes, they could be 5(x2),3,5(x3)
 # expand this into a list that is the same length as hostlist
@@ -52,10 +54,10 @@ f = open(hostfile, "w")
 skipped = False
 
 for ntask, host in zip(tasks, hostlist):
-    for j in range(ntask):
-        if (host == masterhost) and (not skipped):
-            skipped = True
-        else:
-            f.write(host + "\n")
+    # for j in range(ntask):
+    if (host == masterhost) and (not skipped):
+        skipped = True
+    else:
+        f.write("{:}{}\n".format(ntask, host))
 
 f.close()

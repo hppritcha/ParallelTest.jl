@@ -3,25 +3,25 @@
 # Lets add workers programatically, and see if they distribute to different cores.
 
 
-using ArgParse
-
-s = ArgParseSettings()
-@add_arg_table s begin
-    # "--opt1"
-    # help = "an option with an argument"
-    "--p", "-p"
-    help = "number of processes to add"
-    arg_type = Int
-    default = 0
-end
-
-parsed_args = parse_args(ARGS, s)
-
-p = parsed_args["p"]
-
-if p > 0
-    addprocs(p)
-end
+# using ArgParse
+#
+# s = ArgParseSettings()
+# @add_arg_table s begin
+#     # "--opt1"
+#     # help = "an option with an argument"
+#     "--p", "-p"
+#     help = "number of processes to add"
+#     arg_type = Int
+#     default = 0
+# end
+#
+# parsed_args = parse_args(ARGS, s)
+#
+# p = parsed_args["p"]
+#
+# if p > 0
+#     addprocs(p)
+# end
 
 nchild = nworkers()
 println("Workers allocated ", nchild)
