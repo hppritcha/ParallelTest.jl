@@ -55,9 +55,9 @@ skipped = False
 
 for ntask, host in zip(tasks, hostlist):
     # for j in range(ntask):
-    if (host == masterhost) and (not skipped):
-        skipped = True
-    else:
-        f.write("{:}{}\n".format(ntask, host))
+    # if (host == masterhost) and (not skipped):
+        # skipped = True
+    # else:
+    f.write("{:}{}\n".format(ntask, host))
 
 f.close()
