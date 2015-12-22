@@ -136,3 +136,25 @@ We had some overlap, but not drastic.
 #SBATCH --verbose
 
 This did not work, and resulted in cores on same processors.
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 4
+
+#SBATCH -B 1:4:1
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose
+
+This seemed to work, but put two processes on the master process.
+
+#SBATCH -N 1 #ensure all jobs are on the same node
+
+#SBATCH -n 4
+
+#SBATCH -B 1:1:1
+
+#SBATCH --ntasks-per-core 1
+
+#SBATCH --verbose

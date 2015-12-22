@@ -22,7 +22,7 @@
 
 #SBATCH -n 4
 
-#SBATCH -B 1:4:1
+#SBATCH -B 1:1:1
 
 #SBATCH --ntasks-per-core 1
 
