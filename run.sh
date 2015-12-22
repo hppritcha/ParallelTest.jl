@@ -8,7 +8,7 @@
 
 #SBATCH -p general #partition
 
-#SBATCH -t 00:10:00 #running time
+#SBATCH -t 00:3:00 #running time
 
 #SBATCH --mail-type=BEGIN
 
@@ -20,7 +20,7 @@
 
 #SBATCH -N 1 #ensure all jobs are on the same node
 
-#SBATCH -n 8
+#SBATCH -n 4
 
 #SBATCH -B *:*:1
 
@@ -40,6 +40,14 @@ echo "SLURM_NTASKS_PER_CODE $SLURM_NTASKS_PER_CORE"
 echo "SLURM_NTASKS_PER_SOCKET $SLURM_NTASKS_PER_SOCKET"
 
 
+# hostlist=$(scontrol show hostname $SLURM_JOB_NODELIST)
+# rm -f hosts
+#
+# for f in $hostlist
+#   do
+#   echo $f':64' >> hosts
+# done
+
 echo "numactl says"
 numactl --show
 
@@ -52,6 +60,6 @@ echo "Worker CPUs are $CPULIST"
 
 #Constrain the brain process to start on CPUMASTER, then add the workers in using AffinityManager.
 # taskset -c $CPUMASTER ./add_workers_manager.jl $CPULIST
-./add_workers.jl --p 7
-
 # numactl -C $CPUMASTER ./add_workers_manager.jl --cpus $CPULIST
+
+./add_workers.jl --p 3
