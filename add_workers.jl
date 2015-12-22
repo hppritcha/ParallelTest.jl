@@ -36,10 +36,14 @@ end
 println("Before map")
 print_cpus()
 
+# Trying to set path
+@everywhere ENV["PATH"] = ENV["PATH"] * "/n/home07/iczekala/.build/radmc-3d/version_0.38/src"
+
+
 @everywhere function pcpus(mat)
     println("In map")
     print_cpus()
-    println("PATH ", ENV["PATH"])
+    run(`which radmc3d`)
     svd(mat)
 end
 
