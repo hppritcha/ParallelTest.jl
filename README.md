@@ -158,3 +158,5 @@ This seemed to work, but put two processes on the master process.
 #SBATCH --ntasks-per-core 1
 
 #SBATCH --verbose
+
+This put two workers on the master process, but otherwise ok.

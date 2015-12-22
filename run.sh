@@ -18,9 +18,9 @@
 
 #SBATCH --mem 2000 #memory request per node
 
-#SBATCH -N 1 #ensure all jobs are on the same node
+#SBATCH -N 1-4 #ensure all jobs are on the same node
 
-#SBATCH -n 4
+#SBATCH -n 8
 
 #SBATCH -B 1:1:1
 
