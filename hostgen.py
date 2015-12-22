@@ -27,7 +27,8 @@ hostlist = check("scontrol show hostname " + slurm_job_nodelist)[:-1].split("\n"
 
 masterhost = check("hostname").split(".")[0]
 
-# tasklist = check("echo $SLURM_JOB_CPUS_PER_NODE").split(",")
+tasklist = check("echo $SLURM_JOB_CPUS_PER_NODE").split(",")
+
 # hostlist = ["one", "two", "three", "four", "five"]
 # tasklist = "4,2(x3),5".split(",")
 # masterhost = "one"
@@ -51,7 +52,6 @@ print("Hostlist", hostlist)
 print("Tasks", tasks)
 
 f = open(hostfile, "w")
-skipped = False
 
 for ntask, host in zip(tasks, hostlist):
     # for j in range(ntask):
