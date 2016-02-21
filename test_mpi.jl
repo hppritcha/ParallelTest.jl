@@ -23,7 +23,7 @@ print_cpus()
     svd(mat)
 end
 
-M = [rand(1000,1000) for i=1:3]
+M = [rand(1000,1000) for i=1:size]
 
 pmap(pcpus, M)
 
