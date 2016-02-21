@@ -1,4 +1,4 @@
-using MPI
+# using MPI
 import MPI
 
 MPI.Init()
