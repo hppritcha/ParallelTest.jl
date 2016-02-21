@@ -5,7 +5,7 @@ MPI.Init()
 rank = MPI.Comm_rank(MPI.COMM_WORLD)
 size = MPI.Comm_size(MPI.COMM_WORLD)
 
-manager = MPI.start_main_loop(MPI_TRANSPORT_ALL)
+manager = MPI.start_main_loop(MPI.MPI_TRANSPORT_ALL)
 
 println("Hello from rank $rank")
 println("Size $size")
