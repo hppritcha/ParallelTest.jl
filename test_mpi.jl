@@ -12,6 +12,7 @@ println("Size $size")
 
 @everywhere function print_cpus()
     run(pipeline(`ps -eo pid,psr,pcpu,cmd`, `grep julia`))
+    run(`hostname`)
 end
 
 println("Before map")
