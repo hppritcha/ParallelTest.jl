@@ -13,6 +13,7 @@ println("Size $size")
 @everywhere function print_cpus()
     run(pipeline(`ps -eo pid,psr,pcpu,cmd`, `grep julia`))
     run(`hostname`)
+    run(`echo $LD_LIBRARY_PATH`)
 end
 
 println("Before map")
@@ -24,7 +25,7 @@ print_cpus()
     svd(mat)
 end
 
-M = [rand(1000,1000) for i=1:size]
+M = [rand(100,100) for i=1:size]
 
 pmap(pcpus, M)
 
